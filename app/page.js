@@ -1,103 +1,209 @@
 import Image from "next/image";
+import { FaMagnifyingGlass, FaRegBookmark } from "react-icons/fa6";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div>
+      {/* The Navbar section */}
+      <div className="bg-white border-b-2 border-borderc py-5 sticky top-0">
+        <div className="w-9/12 mx-auto flex items-end justify-between">
+          <div className="font-title mr-5 text-2xl">UP-Search</div>
+          <ul className="font-general flex text-darktext h-min gap-5">
+            <li className="">Research Materials</li>
+            <li className="">Writers</li>
+            <li>Bookmarks</li>
+          </ul>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </div>
+
+      {/* The body content here */}
+      <div className="min-h-screen bg-grey pb-10">
+        <div className="flex w-9/12 mx-auto gap-2 pt-5">
+          <div className="bg-white p-3 border border-borderc rounded-xl flex items-center w-8/12 gap-2">
+            <FaMagnifyingGlass className="text-lightext" />
+            <input
+              type="text"
+              placeholder="Search research paper..."
+              className="w-full outline-0 border-0 font-semibold"
+            />
+          </div>
+          <div className="bg-white p-3 rounded-xl border border-borderc w-2/12">
+            <select
+              name="All Categories"
+              id=""
+              className="outline-0 font-semibold w-full"
+            >
+              <option value="Science">Science</option>
+              <option value="Mathematics">Mathematics</option>
+              <option value="History">History</option>
+            </select>
+          </div>
+          <div className="bg-white p-3 rounded-xl border border-borderc w-2/12 font-semibold">
+            Filters
+          </div>
+        </div>
+
+        {/* cards section  */}
+        <div className="w-9/12 mx-auto grid grid-cols-3 gap-4 mt-5">
+          {/* card 1 */}
+          <div className="flex flex-col gap-3 bg-white p-5 rounded-xl border border-borderc">
+            <div className="flex justify-between">
+              <div className="text-blue bg-blue-100 px-2 py-0.5 rounded-full text-xs font-semibold">
+                Computer Science
+              </div>
+              <FaRegBookmark />
+            </div>
+            <div className="font-semibold text-xl ">
+              Machine Learning Approach in Climate Change Prediction
+            </div>
+            <div className="text-darktext font-semibold">
+              An analysis of various machine learning techniques applied to
+              climate data for accurate prediction model...
+            </div>
+            <div className="flex justify-between items-center">
+              <div className="font-semibold text-darktext flex items-center">
+                <div className="bg-amber-100 h-10 w-10 rounded-full flex justify-center items-center mr-2">
+                  DS
+                </div>
+                Dr. Sarah Chen
+              </div>
+              <div className="font-semibold text-lightext">Jan 15, 2025</div>
+            </div>
+          </div>
+
+          {/* card 2 */}
+          <div className="flex flex-col gap-3 bg-white p-5 rounded-xl border border-borderc">
+            <div className="flex justify-between">
+              <div className="text-blue bg-blue-100 px-2 py-0.5 rounded-full text-xs font-semibold">
+                Computer Science
+              </div>
+              <FaRegBookmark />
+            </div>
+            <div className="font-semibold text-xl ">
+              Machine Learning Approach in Climate Change Prediction
+            </div>
+            <div className="text-darktext font-semibold">
+              An analysis of various machine learning techniques applied to
+              climate data for accurate prediction model...
+            </div>
+            <div className="flex justify-between items-center">
+              <div className="font-semibold text-darktext flex items-center">
+                <div className="bg-amber-100 h-10 w-10 rounded-full flex justify-center items-center mr-2">
+                  DS
+                </div>
+                Dr. Sarah Chen
+              </div>
+              <div className="font-semibold text-lightext">Jan 15, 2025</div>
+            </div>
+          </div>
+
+          {/* card 3 */}
+          <div className="flex flex-col gap-3 bg-white p-5 rounded-xl border border-borderc">
+            <div className="flex justify-between">
+              <div className="text-blue bg-blue-100 px-2 py-0.5 rounded-full text-xs font-semibold">
+                Computer Science
+              </div>
+              <FaRegBookmark />
+            </div>
+            <div className="font-semibold text-xl ">
+              Machine Learning Approach in Climate Change Prediction
+            </div>
+            <div className="text-darktext font-semibold">
+              An analysis of various machine learning techniques applied to
+              climate data for accurate prediction model...
+            </div>
+            <div className="flex justify-between items-center">
+              <div className="font-semibold text-darktext flex items-center">
+                <div className="bg-amber-100 h-10 w-10 rounded-full flex justify-center items-center mr-2">
+                  DS
+                </div>
+                Dr. Sarah Chen
+              </div>
+              <div className="font-semibold text-lightext">Jan 15, 2025</div>
+            </div>
+          </div>
+
+          {/* card 1 */}
+          <div className="flex flex-col gap-3 bg-white p-5 rounded-xl border border-borderc">
+            <div className="flex justify-between">
+              <div className="text-blue bg-blue-100 px-2 py-0.5 rounded-full text-xs font-semibold">
+                Computer Science
+              </div>
+              <FaRegBookmark />
+            </div>
+            <div className="font-semibold text-xl ">
+              Machine Learning Approach in Climate Change Prediction
+            </div>
+            <div className="text-darktext font-semibold">
+              An analysis of various machine learning techniques applied to
+              climate data for accurate prediction model...
+            </div>
+            <div className="flex justify-between items-center">
+              <div className="font-semibold text-darktext flex items-center">
+                <div className="bg-amber-100 h-10 w-10 rounded-full flex justify-center items-center mr-2">
+                  DS
+                </div>
+                Dr. Sarah Chen
+              </div>
+              <div className="font-semibold text-lightext">Jan 15, 2025</div>
+            </div>
+          </div>
+
+          {/* card 2 */}
+          <div className="flex flex-col gap-3 bg-white p-5 rounded-xl border border-borderc">
+            <div className="flex justify-between">
+              <div className="text-blue bg-blue-100 px-2 py-0.5 rounded-full text-xs font-semibold">
+                Computer Science
+              </div>
+              <FaRegBookmark />
+            </div>
+            <div className="font-semibold text-xl ">
+              Machine Learning Approach in Climate Change Prediction
+            </div>
+            <div className="text-darktext font-semibold">
+              An analysis of various machine learning techniques applied to
+              climate data for accurate prediction model...
+            </div>
+            <div className="flex justify-between items-center">
+              <div className="font-semibold text-darktext flex items-center">
+                <div className="bg-amber-100 h-10 w-10 rounded-full flex justify-center items-center mr-2">
+                  DS
+                </div>
+                Dr. Sarah Chen
+              </div>
+              <div className="font-semibold text-lightext">Jan 15, 2025</div>
+            </div>
+          </div>
+
+          {/* card 3 */}
+          <div className="flex flex-col gap-3 bg-white p-5 rounded-xl border border-borderc">
+            <div className="flex justify-between">
+              <div className="text-blue bg-blue-100 px-2 py-0.5 rounded-full text-xs font-semibold">
+                Computer Science
+              </div>
+              <FaRegBookmark />
+            </div>
+            <div className="font-semibold text-xl ">
+              Machine Learning Approach in Climate Change Prediction
+            </div>
+            <div className="text-darktext font-semibold">
+              An analysis of various machine learning techniques applied to
+              climate data for accurate prediction model...
+            </div>
+            <div className="flex justify-between items-center">
+              <div className="font-semibold text-darktext flex items-center">
+                <div className="bg-amber-100 h-10 w-10 rounded-full flex justify-center items-center mr-2">
+                  DS
+                </div>
+                Dr. Sarah Chen
+              </div>
+              <div className="font-semibold text-lightext">Jan 15, 2025</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Article cards here */}
     </div>
   );
 }
