@@ -1,7 +1,17 @@
 import Image from "next/image";
 import { FaMagnifyingGlass, FaRegBookmark } from "react-icons/fa6";
+import { client } from "../utils/contentful";
+import BlogCard from "@/components/blogcard";
 
-export default function Home() {
+export default async function Home() {
+  const response = await client.getEntries({ content_type: "blogPage" }); //get request
+  // console.log(response.items[0].fields);
+
+  const data = response.items;
+  // console.log(data);
+
+  // const [onFocus, setFocus] = useState(false);
+
   return (
     <div>
       {/* The Navbar section */}
@@ -9,9 +19,9 @@ export default function Home() {
         <div className="w-9/12 mx-auto flex items-end justify-between">
           <div className="font-title mr-5 text-2xl">UP-Search</div>
           <ul className="font-general flex text-darktext h-min gap-5">
-            <li className="">Research Materials</li>
-            <li className="">Writers</li>
-            <li>Bookmarks</li>
+            <li className="cursor-pointer">Research Materials</li>
+            <li className="cursor-pointer">Writers</li>
+            <li className="cursor-pointer">Bookmarks</li>
           </ul>
         </div>
       </div>
@@ -45,161 +55,9 @@ export default function Home() {
 
         {/* cards section  */}
         <div className="w-9/12 mx-auto grid grid-cols-3 gap-4 mt-5">
-          {/* card 1 */}
-          <div className="flex flex-col gap-3 bg-white p-5 rounded-xl border border-borderc">
-            <div className="flex justify-between">
-              <div className="text-blue bg-blue-100 px-2 py-0.5 rounded-full text-xs font-semibold">
-                Computer Science
-              </div>
-              <FaRegBookmark />
-            </div>
-            <div className="font-semibold text-xl ">
-              Machine Learning Approach in Climate Change Prediction
-            </div>
-            <div className="text-darktext font-semibold">
-              An analysis of various machine learning techniques applied to
-              climate data for accurate prediction model...
-            </div>
-            <div className="flex justify-between items-center">
-              <div className="font-semibold text-darktext flex items-center">
-                <div className="bg-amber-100 h-10 w-10 rounded-full flex justify-center items-center mr-2">
-                  DS
-                </div>
-                Dr. Sarah Chen
-              </div>
-              <div className="font-semibold text-lightext">Jan 15, 2025</div>
-            </div>
-          </div>
-
-          {/* card 2 */}
-          <div className="flex flex-col gap-3 bg-white p-5 rounded-xl border border-borderc">
-            <div className="flex justify-between">
-              <div className="text-blue bg-blue-100 px-2 py-0.5 rounded-full text-xs font-semibold">
-                Computer Science
-              </div>
-              <FaRegBookmark />
-            </div>
-            <div className="font-semibold text-xl ">
-              Machine Learning Approach in Climate Change Prediction
-            </div>
-            <div className="text-darktext font-semibold">
-              An analysis of various machine learning techniques applied to
-              climate data for accurate prediction model...
-            </div>
-            <div className="flex justify-between items-center">
-              <div className="font-semibold text-darktext flex items-center">
-                <div className="bg-amber-100 h-10 w-10 rounded-full flex justify-center items-center mr-2">
-                  DS
-                </div>
-                Dr. Sarah Chen
-              </div>
-              <div className="font-semibold text-lightext">Jan 15, 2025</div>
-            </div>
-          </div>
-
-          {/* card 3 */}
-          <div className="flex flex-col gap-3 bg-white p-5 rounded-xl border border-borderc">
-            <div className="flex justify-between">
-              <div className="text-blue bg-blue-100 px-2 py-0.5 rounded-full text-xs font-semibold">
-                Computer Science
-              </div>
-              <FaRegBookmark />
-            </div>
-            <div className="font-semibold text-xl ">
-              Machine Learning Approach in Climate Change Prediction
-            </div>
-            <div className="text-darktext font-semibold">
-              An analysis of various machine learning techniques applied to
-              climate data for accurate prediction model...
-            </div>
-            <div className="flex justify-between items-center">
-              <div className="font-semibold text-darktext flex items-center">
-                <div className="bg-amber-100 h-10 w-10 rounded-full flex justify-center items-center mr-2">
-                  DS
-                </div>
-                Dr. Sarah Chen
-              </div>
-              <div className="font-semibold text-lightext">Jan 15, 2025</div>
-            </div>
-          </div>
-
-          {/* card 1 */}
-          <div className="flex flex-col gap-3 bg-white p-5 rounded-xl border border-borderc">
-            <div className="flex justify-between">
-              <div className="text-blue bg-blue-100 px-2 py-0.5 rounded-full text-xs font-semibold">
-                Computer Science
-              </div>
-              <FaRegBookmark />
-            </div>
-            <div className="font-semibold text-xl ">
-              Machine Learning Approach in Climate Change Prediction
-            </div>
-            <div className="text-darktext font-semibold">
-              An analysis of various machine learning techniques applied to
-              climate data for accurate prediction model...
-            </div>
-            <div className="flex justify-between items-center">
-              <div className="font-semibold text-darktext flex items-center">
-                <div className="bg-amber-100 h-10 w-10 rounded-full flex justify-center items-center mr-2">
-                  DS
-                </div>
-                Dr. Sarah Chen
-              </div>
-              <div className="font-semibold text-lightext">Jan 15, 2025</div>
-            </div>
-          </div>
-
-          {/* card 2 */}
-          <div className="flex flex-col gap-3 bg-white p-5 rounded-xl border border-borderc">
-            <div className="flex justify-between">
-              <div className="text-blue bg-blue-100 px-2 py-0.5 rounded-full text-xs font-semibold">
-                Computer Science
-              </div>
-              <FaRegBookmark />
-            </div>
-            <div className="font-semibold text-xl ">
-              Machine Learning Approach in Climate Change Prediction
-            </div>
-            <div className="text-darktext font-semibold">
-              An analysis of various machine learning techniques applied to
-              climate data for accurate prediction model...
-            </div>
-            <div className="flex justify-between items-center">
-              <div className="font-semibold text-darktext flex items-center">
-                <div className="bg-amber-100 h-10 w-10 rounded-full flex justify-center items-center mr-2">
-                  DS
-                </div>
-                Dr. Sarah Chen
-              </div>
-              <div className="font-semibold text-lightext">Jan 15, 2025</div>
-            </div>
-          </div>
-
-          {/* card 3 */}
-          <div className="flex flex-col gap-3 bg-white p-5 rounded-xl border border-borderc">
-            <div className="flex justify-between">
-              <div className="text-blue bg-blue-100 px-2 py-0.5 rounded-full text-xs font-semibold">
-                Computer Science
-              </div>
-              <FaRegBookmark />
-            </div>
-            <div className="font-semibold text-xl ">
-              Machine Learning Approach in Climate Change Prediction
-            </div>
-            <div className="text-darktext font-semibold">
-              An analysis of various machine learning techniques applied to
-              climate data for accurate prediction model...
-            </div>
-            <div className="flex justify-between items-center">
-              <div className="font-semibold text-darktext flex items-center">
-                <div className="bg-amber-100 h-10 w-10 rounded-full flex justify-center items-center mr-2">
-                  DS
-                </div>
-                Dr. Sarah Chen
-              </div>
-              <div className="font-semibold text-lightext">Jan 15, 2025</div>
-            </div>
-          </div>
+          {data.map((item) => (
+            <BlogCard blog={item} key={item.sys.id}></BlogCard>
+          ))}
         </div>
       </div>
 
