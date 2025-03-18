@@ -41,7 +41,7 @@ export default async function Home() {
         </div>
 
         {/* cards section  */}
-        <div className="w-9/12 mx-auto grid grid-cols-3 gap-4 mt-5">
+        <div className="w-9/12 mx-auto grid lg:grid-cols-3 grid-cols-1 md:grid-cols-2 gap-4 mt-5">
           {data.map((item) => (
             <BlogCard blog={item} key={item.sys.id}></BlogCard>
           ))}
