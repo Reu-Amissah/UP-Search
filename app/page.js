@@ -2,29 +2,16 @@ import Image from "next/image";
 import { FaMagnifyingGlass, FaRegBookmark } from "react-icons/fa6";
 import { client } from "../utils/contentful";
 import BlogCard from "@/components/blogcard";
+import Header from "@/components/header";
 
 export default async function Home() {
   const response = await client.getEntries({ content_type: "blogPage" }); //get request
-  // console.log(response.items[0].fields);
-
-  const data = response.items;
-  // console.log(data);
-
-  // const [onFocus, setFocus] = useState(false);
+    const data = response.items;
 
   return (
     <div>
       {/* The Navbar section */}
-      <div className="bg-white border-b-2 border-borderc py-5 sticky top-0">
-        <div className="w-9/12 mx-auto flex items-end justify-between">
-          <div className="font-title mr-5 text-2xl">UP-Search</div>
-          <ul className="font-general flex text-darktext h-min gap-5">
-            <li className="cursor-pointer">Research Materials</li>
-            <li className="cursor-pointer">Writers</li>
-            <li className="cursor-pointer">Bookmarks</li>
-          </ul>
-        </div>
-      </div>
+      <Header></Header>
 
       {/* The body content here */}
       <div className="min-h-screen bg-grey pb-10">

@@ -2,14 +2,24 @@
 
 @theme {
   /*--color-*: initial;*/
-  --color-borderc:#e4e7ee; 
-  --color-grey: #F9FAFB;
-  --color-blue: #2463EB;
-  --color-lightext: #9CA3AF;
-  --color-darktext: #4B5563;
+  --color-borderc: #e4e7ee;
+  --color-grey: #f9fafb;
+  --color-blue: #2463eb;
+  --color-lightext: #9ca3af;
+  --color-darktext: #4b5563;
 }
 
 @theme {
-  --font-title: "Righteous", sans-serif; 
+  --font-title: "Righteous", sans-serif;
   --font-general: "Joan", sans-serif;
+}
+
+h2 {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+*{
+  transition: all 0.1s;
+  transition-duration: 150ms;
 }

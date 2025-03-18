@@ -1,5 +1,6 @@
 import React from "react";
 import { FaMagnifyingGlass, FaRegBookmark } from "react-icons/fa6";
+import Link from "next/link";
 
 const BlogCard = ({ blog }) => {
   function truncateText(text) {
@@ -10,7 +11,7 @@ const BlogCard = ({ blog }) => {
 
   console.log(blog);
   return (
-    <div className="flex flex-col gap-3 bg-white p-5 rounded-xl border border-borderc">
+    <Link className="flex flex-col gap-3 bg-white p-5 rounded-xl border-2 border-borderc hover:border-blue" href={`/${blog.fields.slug}`}>
       <div className="flex justify-between">
         <div className="text-blue bg-blue-100 px-2 py-0.5 rounded-full text-xs font-semibold">
           {blog.fields.categories[0]}
@@ -32,7 +33,7 @@ const BlogCard = ({ blog }) => {
           {blog.fields.dateCreated}
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
